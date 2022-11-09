@@ -1,0 +1,19 @@
+[package]
+name = "lambda-spy"
+version = "0.1.0"
+edition = "2021"
+authors = ["ClearVector"]
+readme = "README.md"
+license-file = "LICENSE"
+
+[profile.release]
+lto = true          # Enable Link Time Optimization
+panic = 'abort'     # Abort on panic
+strip = true        # Strip symbols from binary*
+
+[dependencies]
+hyper = { version = "0.14", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
+nix = { version = "0.25.0", features = ["uio"] }
+serde_json = "1.0.85"
+lambda-extension = "0.6.0"
